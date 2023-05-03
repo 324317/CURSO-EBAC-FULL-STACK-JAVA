@@ -1,0 +1,31 @@
+
+* /*Reset*/ {
+    margin: 0;
+    padding: 0;
+    box-sizing:"border-box";
+}
+
+header li {
+    display: inline;
+}
+
+.conteiner {
+    width: 1366px;
+    
+    /*margin: 0 auto 0 auto;*/
+    margin: 0 auto;
+}
+
+.articles {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.articles article img {
+    height: 180px;
+}
+
+.articles article {
+    width: 30%;
+}
