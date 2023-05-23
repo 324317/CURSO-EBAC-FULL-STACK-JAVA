@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+header,
+section h2,
+section h3,
+form button {
+    font-family: 'Bungee', cursive;
+    font-weight: normal;
+}
+
+body,
+input,
+textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
 header {
     padding: 16px 0;
     background-color: #182c61;
@@ -13,7 +27,7 @@ header {
 header nav li {
     display: inline;
     margin-left: 16px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 header nav li a {
@@ -23,13 +37,107 @@ header nav li a {
 
 .container {
     /* max-width: 1280px; */
-    max-width: 800px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
 }
 
-header .container {
+header .container,
+section .container {
     display:flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.brands-list img {
+    height: 24px;
+}
+
+.brands-list li {
+    display: inline;
+}
+
+section .container {
+    align-items: flex-start;
+}
+
+/* a cascata e a possibilidade de sobreescrever regras no css  */
+
+section {
+    padding: 24px 0;
+    color: #182c61;
+} 
+
+section h2 {
+    margin-bottom: 16px;
+}
+
+section p {
+    margin-bottom: 8px;
+}
+
+.front-store{
+    margin-right: 32px;
+}
+
+.social-links img {
+    height: 24px;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 8px;
+}
+
+.social-links li a {
+    text-decoration: none;
+}
+
+#contats .container {
+    display: block;
+}
+
+.contats-methods {
+    display: flex;
+    justify-content: space-between;
+}
+
+form input,
+form textarea,
+form button{
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+form textarea {
+    resize: none;
+    height: 180px;
+}
+
+section h3 {
+    margin-bottom: 16px;
+}
+
+form button {
+    background-color: #182c61;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: #2d4fac;
+} 
+
+input:focus , textarea:focus {
+    outline-color: #182c61;
+}
+
+footer {
+    background-color: #182c61;
+    color: #ecf0f1;
+    padding: 16px 0;
+    text-align: center;
 }
