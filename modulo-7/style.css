@@ -15,7 +15,7 @@ form {
     margin-top: 40px;
 }
 
-input, button {
+input, textarea, button {
     display: block;
     padding: 8px;
     margin-bottom: 8px;
@@ -42,16 +42,20 @@ button:hover {
     background-color: #27ae60;
     padding: 16px;
     color: #fff;
-    display: block;
+    display: none;
 }
 
 .error-message {
-    background-color: red;
-    padding: 16px;
+    font-size: 12px;
+    padding: 8px;
+    background-color: red ;
     color: #fff;
-    display: block;
+    margin-bottom: 8px;
+    display:none;
 }
 
-.container p {
-    margin-bottom: 26px;;
+input .error {
+    color: red;
+    border-color: red;
+    outline-color: red;
 }
