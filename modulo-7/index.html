@@ -12,15 +12,12 @@
         <h1>ATIVIDADE</h1>
         <h2>Módulo 7</h2>
         <form id="form">
-            <!-- <input type="text" id="nome-beneficiario" required placeholder="Nome Completo" /> -->
-            <!-- <p class="error-message">O nome precisa ser Completo</p> -->
             <input type="number" id="campo-A" required placeholder="campo-A" />
-            <input type="number" id="campo-B" class='error' required placeholder="campo B" />
-            <p class="error-message"></p>
-            <button type="submit" id="btn-submit">Submeter</button>
+            <input type="number" id="campo-B" required placeholder="campo B" />
+            <button type="submit" id="btn-submit">Submeter</button>;
         </form>
-        <p class="sucess-message"></p>
-        <p class="error-message"></p>
+        <p id="confirm"></p>
+        <button onclick="recarregarPagina()">Limpar para fazer denovo</button>
     </div>
     <script src="./main.js"></script>
 </body>
