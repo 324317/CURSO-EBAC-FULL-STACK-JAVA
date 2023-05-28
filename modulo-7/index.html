@@ -9,15 +9,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>ATIVIDADE</h1>
-        <h2>Módulo 7</h2>
-        <form id="form">
-            <input type="number" id="campo-A" required placeholder="campo-A" />
-            <input type="number" id="campo-B" required placeholder="campo B" />
-            <button type="submit" id="btn-submit">Submeter</button>;
+        <h1>EDGARBanking</h1>
+        <h2>Depósitos</h2>
+        <form id="form-deposito">
+            <input type="text" id="nome-beneficiario" required placeholder="Nome Completo" />
+            <p class="error-message">O nome precisa ser Completo</p>
+            <input type="number" id="numero-conta" required placeholder="Número da conta" />
+            <input type="number" id="valor-deposito" required placeholder="Valor" />
+            <textarea placeholder="Descrição (Opcional)" id="descricao"></textarea>
+            <button type="submit" id="btn-depositar">Depositar</button>
         </form>
-        <p id="confirm"></p>
-        <button onclick="recarregarPagina()">Limpar para fazer denovo</button>
+        <p class="sucess-message">
+            <!-- O montante de : <b>1000</b> foi enviado para o cliente : <b>Nome do Cliente</b> - conta: <b>1</b> -->
+        </p>
     </div>
     <script src="./main.js"></script>
 </body>
