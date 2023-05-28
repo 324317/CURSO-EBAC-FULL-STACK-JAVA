@@ -1,43 +1,51 @@
-const form = document.getElementById('form');
-const campoA = document.getElementById('campo-A');
-const campoB = document.getElementById('campo-B');
-const confirmMessage = document.getElementById('confirm');
+const form = document.getElementById('form-deposito');
+const nomeBeneficiario = document.getElementById('nome-beneficiario');
 let formEValido = false;
 
-function validaForm(campoA,campoB) {
-    let test = false;
-    if (campoB > campoA) {
-        test=true}
-    return test
+function validaNome(nomeCompleto) {
+    const nomeComoArray = nomeCompleto.split(' ');
+    return nomeComoArray.length>=2;
 }
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const campoA = document.getElementById('campo-A');
-    const campoB = document.getElementById('campo-B');
-    const sucessMessage = `Formulário Válido : <b>Campo B( ${campoB.value} )</b> é maior que <b>campo A ( ${campoA.value} )</b>`;
-    const errorMessage = `Formulário Inválido : <b>Campo B( ${campoB.value} )</b> é menor (ou igual) que <b>campo A ( ${campoA.value} )</b>`;
+    // const nomeBeneficiario = document.getElementById('nome-beneficiario');
+    const numeroContaBeneficiario = document.getElementById('numero-conta');
+    const valorDeposito = document.getElementById('valor-deposito');
+    const descricao = document.getElementById('descricao')
 
-    formEValido = validaForm(campoA.value,campoB.value)
+    const sucessMessage = `<b>${valorDeposito.value}</b> Reais depositados para o cliente <b>${nomeBeneficiario.value}</b> - conta: <b>${numeroContaBeneficiario.value}</b>`;
+
+    formEValido = validaNome(nomeBeneficiario.value)
     if (formEValido) {
-        confirmMessage.classList.add('sucess-message')
+        // alert(sucessMessage);
         const containerMessageSucess = document.querySelector('.sucess-message');
         containerMessageSucess.innerHTML = sucessMessage;
+        containerMessageSucess.style.display='block';
 
-        campoA.value='';
-        campoB.value='';
-
+        nomeBeneficiario.value='';
+        numeroContaBeneficiario.value='';
+        valorDeposito.value='';
+        descricao.value='';
     } else {
-        confirmMessage.classList.add('error-message')
-        const containerMessageError = document.querySelector('.error-message');
-        containerMessageError.innerHTML = errorMessage;
-
-        campoA.value='';
-        campoB.value='';
+        // alert('O nome não está completo!');
+        nomeBeneficiario.style.border = '3px solid red'
+        document.querySelector('.error-message').style.display = 'block';
     }
 })
 
-function recarregarPagina() {
-    location.reload();
-}
+nomeBeneficiario.addEventListener('keyup', function(event) {
+    console.log(event.target.value);
+    formEValido = validaNome(event.target.value);
+
+    if (!formEValido) {
+        nomeBeneficiario.classList.add('error')
+        // nomeBeneficiario.style.border = '3px solid red' ;
+        document.querySelector('.error-message').style.display = 'block';
+    } else {
+        nomeBeneficiario.classList.remove('error')
+        // nomeBeneficiario.style = '';
+        document.querySelector('.error-message').style.display = 'none';
+    }
+})
