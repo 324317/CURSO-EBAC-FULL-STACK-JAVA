@@ -1,53 +1,52 @@
-const form = document.getElementById('form-deposito');
-const nomeBeneficiario = document.getElementById('nome-beneficiario');
+const form = document.getElementById('form');
+const campoA = document.getElementById('campo-A');
+const campoB = document.getElementById('campo-B');
 let formEValido = false;
 
-function validaNome(nomeCompleto) {
-    const nomeComoArray = nomeCompleto.split(' ');
-    return nomeComoArray.length>=2;
+function validaForm(campoA,campoB) {
+    let test = false;
+    if (campoB > campoA) {
+        test=true}
+    return test
 }
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // const nomeBeneficiario = document.getElementById('nome-beneficiario');
-    const numeroContaBeneficiario = document.getElementById('numero-conta');
-    const valorDeposito = document.getElementById('valor-deposito');
-    const descricao = document.getElementById('descricao')
+    const campoA = document.getElementById('campo-A');
+    const campoB = document.getElementById('campo-B');
+    const sucessMessage = `<b>Campo B: ${campoB.value}</b> é maior que <b>campo A: ${campoA.value}</b>`;
+    const errorMessage = `<b>Campo B: ${campoB.value}</b> é menor (ou igual) a <b>Campo A: ${campoA.value}</b>`;
 
-    const sucessMessage = `<b>${valorDeposito.value}</b> Reais depositados para o cliente <b>${nomeBeneficiario.value}</b> - conta: <b>${numeroContaBeneficiario.value}</b>`;
-
-    formEValido = validaNome(nomeBeneficiario.value)
+    formEValido = validaForm(campoA.value,campoB.value)
     if (formEValido) {
-        // alert(sucessMessage);
         const containerMessageSucess = document.querySelector('.sucess-message');
         containerMessageSucess.innerHTML = sucessMessage;
         containerMessageSucess.style.display='block';
 
-        nomeBeneficiario.value='';
-        numeroContaBeneficiario.value='';
-        valorDeposito.value='';
-        descricao.value='';
+        campoA.value='';
+        campoB.value='';
+
     } else {
-        // alert('O nome não está completo!');
-        nomeBeneficiario.style.border = '3px solid red'
-        document.querySelector('.error-message').style.display = 'block';
+        const containerMessageSucess = document.querySelector('.sucess-message');
+        containerMessageSucess.innerHTML = errorMessage;
+        containerMessageSucess.style.display='block';
+
+        campoA.value='';
+        campoB.value='';
     }
 })
 
-nomeBeneficiario.addEventListener('keyup', function(event) {
+campoB.addEventListener('keyup', function(event) {
     console.log(event.target.value);
-    formEValido = validaNome(event.target.value);
+    // formEValido = validaForm(event.target.value);
+    formEValido = validaForm(campoA.value,campoB.value)
 
     if (!formEValido) {
-        nomeBeneficiario.classList.add('error')
-        // nomeBeneficiario.style.border = '3px solid red' ;
+        campoB.classList.add('error')
         document.querySelector('.error-message').style.display = 'block';
     } else {
-        nomeBeneficiario.classList.remove('error')
-        // nomeBeneficiario.style = '';
+        campoB.classList.remove('error')
         document.querySelector('.error-message').style.display = 'none';
     }
 })
-
-// console.log(form)
